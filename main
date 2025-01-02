@@ -1,0 +1,23 @@
+import streamlit as st
+
+st.title("BMI Calculator")
+
+def display():
+    age = st.text_input("What is your age?")
+    height = st.text_input("What is your height in m?")
+    weight = st.text_input("What is your weight in kg?")
+    result = st.button("Calculate")
+    if result:
+        bmi = float(weight)/(float(height)*float(height))
+        if bmi < 18.5:
+            classification = "underweight"
+        elif bmi < 24.9:
+            classification = "normal weight"
+        elif bmi < 29.9:
+            classification = "overweight"
+        else:
+            classification = "obese"
+
+        st.write(f"Your BMI is {round(bmi,1)}. You are {classification}.")
+
+display()
